@@ -1,21 +1,44 @@
 #include <stdio.h>
 
 int main() {
-  printf("Enter the first no: ");
-  float x;//Declaration
-  scanf("%f",&x);//initalisation by user
-  
-  printf("Enter the second no: ");
-  float y;
-  scanf("%f",&y);
-  
-  printf("\nChoose (+,_,*,/) to continue:\n");
-  char i;
-  scanf("%c",&i);
+    char operator;
+    double num1, num2, result;
 
-  if (i=="+") printf("\nAddition%f:",x+y);
-  if (i=="-") printf("\nSubstraction%f:",x-y);
-  if (i=="*") printf("\nMultiplication%f:",x*y);
-  if (i=="/") printf("\nDivision:%f",x/y);
-  return 0;
+    printf("Enter an operator (+, -, *, /): ");
+    scanf("%c", &operator);
+
+    printf("Enter two numbers: ");
+    scanf("%lf %lf", &num1, &num2);
+
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            printf("%.2lf + %.2lf = %.2lf\n", num1, num2, result);
+            break;
+
+        case '-':
+            result = num1 - num2;
+            printf("%.2lf - %.2lf = %.2lf\n", num1, num2, result);
+            break;
+
+        case '*':
+            result = num1 * num2;
+            printf("%.2lf * %.2lf = %.2lf\n", num1, num2, result);
+            break;
+
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+                printf("%.2lf / %.2lf = %.2lf\n", num1, num2, result);
+            } else {
+                printf("Error: Division by zero is not allowed.\n");
+            }
+            break;
+
+        default:
+            printf("Error: Invalid operator.\n");
+            break;
+    }
+
+    return 0;
 }
