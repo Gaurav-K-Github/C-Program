@@ -6,7 +6,7 @@ int main() {
 
     printf("Enter an operator (+, -, *, /): ");
     scanf("%c", &operator);
-
+ 
     printf("Enter two numbers: ");
     scanf("%lf %lf", &num1, &num2);
  
